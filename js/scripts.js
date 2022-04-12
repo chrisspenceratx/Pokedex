@@ -1,16 +1,5 @@
-let pokemonList = [];
-
-// Bulbasaur stats
-let bulbasaurName = 'Bulbasaur';
-let bulbasaurHeight = 7;
-let bulbasaurType = 'grass';
-
-// Ivysaur stats
-let ivysaurName = 'Ivysaur';
-let ivysaurHeight = 8;
-let ivysaurType = 'poison';
-
-// Venusaur stats
-let venusaurName = 'Venusaur';
-let venusaurHeight = 9;
-let venusaurType = 'quick';
+let pokemonList = [
+    {name: 'Bulbasaur', height: 7, type: 'grass'},
+    {name: 'Ivysaur', height: 8, type: 'poison'},
+    {name: 'Venusaur', height: 9, type: 'quick'}
+];
