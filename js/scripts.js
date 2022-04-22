@@ -1,15 +1,39 @@
-// Pokemon character specs
-let pokemonList = [
-    {name: 'Bulbasaur', height: 7, type: 'grass'},
-    {name: 'Ivysaur', height: 8, type: 'poison'},
-    {name: 'Venusaur', height: 9, type: 'quick'}
-];
 
-// Loops for Pokemon names/heights
-for (let i=0; i < pokemonList.length; i++)  {
-    if (pokemonList[i].height >= 8) {
-    document.write(pokemonList[i].name + " (" + "height " + pokemonList[i].height + ") " + "- Wow thats big! <br />");
-    } else {
-    document.write(pokemonList[i].name + " (" + "height " + pokemonList[i].height + ") <br />");
+//**This was for PT 1.  My PT 1 forEach loop --
+//  pokemonList.forEach(function(pokemon) {
+//  document.write(pokemon.name + ' is ' + pokemon.height + ' inches long, and ' + pokemon.type + ' type. <br />');
+//});    
+
+
+
+// IIFE
+  let pokemonRepository = (function () {
+    let pokemonList = [
+            {name: 'Bulbasaur', height: 7, type: 'grass'},
+            {name: 'Ivysaur', height: 8, type: 'poison'},
+            {name: 'Venusaur', height: 9, type: 'quick'}
+        ]
+   
+// Public Functions     
+        function getAll() {
+            return pokemonList;
+            }
+    
+        function add(pokemon) {
+        pokemonList.push(pokemon);
     }
-    }
+  
+
+    return {
+		getAll: getAll,
+		add: add
+	}   
+
+      
+     })();
+
+     
+// Revised PT2 forEach loop
+pokemonRepository.getAll().forEach (function(pokemon) {
+	document.write(pokemon.name + ' is ' + pokemon.height + ' inches long, and ' + pokemon.type + ' type. <br />');
+});
