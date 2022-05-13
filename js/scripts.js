@@ -1,10 +1,3 @@
-//**This was for PT 1.  My PT 1 forEach loop --
-//  pokemonList.forEach(function(pokemon) {
-//  document.write(pokemon.name + ' is ' + pokemon.height + ' inches long, and ' + pokemon.type + ' type. <br />');
-//});    
-
-
-
 // IIFE
 let pokemonRepository = (function () {
     let pokemonList = [
@@ -13,29 +6,68 @@ let pokemonRepository = (function () {
             {name: 'Venusaur', height: 9, type: 'quick'}
         ]
 
+        function showDetails(pokemon) {
+            console.log(pokemon);
+        }
+
+        function addListItem(pokemon){
+            let pokemonList = document.querySelector(".pokemon-list");
+            let listpokemon = document.createElement("li");
+            let button = document.createElement("button");
+            button.innerText = pokemon.name;
+            button.classList.add("button-class");
+            listpokemon.appendChild(button);
+            pokemonList.appendChild(listpokemon);
+            addEvent(button, pokemon);
+         }
+
+         function addEvent(button,pokemon) {
+            button.addEventListener('click', function() {
+              showDetails(pokemon);
+            });
+        }
+
+       
+
+
 // Public Functions     
+        function add(pokemon) {
+            if (
+                typeof pokemon === "object" &&
+                "name" in pokemon &&
+                "height" in pokemon &&
+                "types" in pokemon
+              ) {
+                repository.push(pokemon);
+              } 
+            
+            else {
+                console.log("pokemon is not correct");
+              }
+        pokemonList.push(pokemon);
+        }
+
         function getAll() {
             return pokemonList;
             }
 
-        function add(pokemon) {
-        pokemonList.push(pokemon);
-        }
-
-    
-
+           
+        
         return {
             getAll: getAll,
-            add: add
+            add: add,
+            addListItem: addListItem
         }   
     
     
          })();
     
     
-    // Revised PT2 forEach loop
+    //forEach loop
     pokemonRepository.getAll().forEach (function(pokemon) {
-        if (pokemon.height >= 8)  {document.write(pokemon.name + ' is ' + pokemon.height + ' inches long, and ' + pokemon.type + ' type. Wow that is big! <br />');
-    }   else if (pokemon.height < 8) {document.write(pokemon.name + 'is ' + pokemon.height + ' inches long, and ' + pokemon.type + ' type. <br />');
-    }
+       pokemonRepository.addListItem(pokemon);
+       
+       
+
 }); 
+   
