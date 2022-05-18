@@ -21,6 +21,12 @@ let pokemonRepository = (function () {
             addClickEvent(button, pokemon);
          }
 
+           return {
+            getAll: getAll,
+            add: add,
+            addListItem: addListItem
+        }   
+
          function addClickEvent(button,pokemon) {
             button.addEventListener('click', function() {
               showDetails(pokemon);
@@ -53,11 +59,7 @@ let pokemonRepository = (function () {
 
            
         
-        return {
-            getAll: getAll,
-            add: add,
-            addListItem: addListItem
-        }   
+     
     
     
          })();
