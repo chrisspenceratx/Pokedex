@@ -7,23 +7,6 @@
       pokemonList.push(pokemon);
     }
 
-    function getAll() {
-      return pokemonList;
-    }
-
-    function addListItem(pokemon){
-        let pokemonList = document.querySelector(".pokemon-list");
-        let listpokemon = document.createElement("li");
-        let button = document.createElement("button");
-        button.innerText = pokemon.name;
-        button.classList.add("button-class");
-        listpokemon.appendChild(button);
-        pokemonList.appendChild(listpokemon);
-        button.addEventListener("click", function(event) {
-          showDetails(pokemon);
-        });
-        }
-
     function loadList() {
       return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -41,6 +24,25 @@
       })
       }  
 
+
+    function getAll() {
+      return pokemonList;
+    }
+
+    function addListItem(pokemon){
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listpokemon = document.createElement("li");
+        let button = document.createElement("button");
+        button.innerText = pokemon.name;
+        button.classList.add("button-class");
+        listpokemon.appendChild(button);
+        pokemonList.appendChild(listpokemon);
+        button.addEventListener("click", function(event) {
+          showDetails(pokemon);
+        });
+        }
+
+  
     function loadDetails(item) {
       let url = item.detailsUrl;
       return fetch(url).then(function (response) {
