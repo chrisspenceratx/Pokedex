@@ -3,31 +3,33 @@
   let modalContainer = document.querySelector('#modal-container');
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  
+  
 
- //  ---------- ShowModal data listed below --------- //
+//  ---------- ShowModal data listed below --------- //
 
     function showModal() {
       modalContainer.classList.add('is-visible');
     }
 
-    function showModal(title, text, imageUrl) {
+    function showModal(title, text, apiUrl) {
       
     
-  // Clear all existing modal content
+// Clear all existing modal content
       modalContainer.innerHTML = '';
     
-  // Declares new div and adds modal CSS sclass //
+// Declares new div and adds modal CSS sclass //
       let modal = document.createElement('div');
       modal.classList.add('modal');
     
-  // Button content for modal
+// Button content for modal
       let closeButtonElement = document.createElement('button');
       closeButtonElement.classList.add('modal-close');
       closeButtonElement.innerText = 'Close';
       closeButtonElement.addEventListener('click', hideModal);
 
       
-  // Content within the modal //
+// Content within the modal //
 
       let titleElement = document.createElement('h1');
       titleElement.innerText = title;
@@ -43,71 +45,56 @@
       modalContainer.classList.add('is-visible');
     }
 
-    function hideModal() {
+  function hideModal() {
       modalContainer.classList.remove('is-visible');
-    }
+  }
 
-  // Esc key content for modal //
+// Esc key content for modal //
       window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
         hideModal();  
       }
     });
 
-  // Overlay click content - closes on click outside modal //
+// Overlay click content - closes on click outside modal //
       modalContainer.addEventListener('click', (e) => {
       let target = e.target;
       if (target === modalContainer) {
         hideModal();
       }
     });
-
-    
-  // Displays modal content on clicking //
-  /*   document.querySelector('#show-modal').addEventListener('click', () => {
-      showModal('Modal title', 'This is the modal content!');
-    });
- */
-/*     document.querySelector('#show-modal').addEventListener('click', () => {
-      showModal();
-    });
- */
-    
  
  //  ---------- ShowModal data listed above --------- //
-
-  
-
-    function add (pokemon) {
+  function add (pokemon) {
       pokemonList.push(pokemon);
-    }
+  }
 
 // Functions that displays all pokemon buttons on loading page. //
-    function getAll() {
+  function getAll() {
       return pokemonList;
-    }
+  }
 
-    function loadDetails(item) {
+  function loadDetails(item) {
       let url = item.detailsUrl;
       return fetch(url).then(function (response) {
         return response.json();
       }).then(function (details) {
-        item.imageUrl = details.sprites.front_default;
+        item.Url = details.sprites.front_default;
         item.height = details.height;
         item.types = details.types;
       }).catch(function (e) {
         console.error(e);
       });
-      }
+  }
 
-    function showDetails(item) {
+  function showDetails(item) {
       pokemonRepository.loadDetails(item).then(function () {
        /*  console.log(item); */
-       showModal(item.name, item.height, item.types, item.imageUrl);
+       showModal(item.name, item.height, /* item.types, */ item.Url);
       });
-      }
+  }
 
-  // Function that immediately loads content to console from buttons listed. //
+// Function that immediately loads content to console from buttons listed. //
   function loadList() {
     return fetch(apiUrl).then(function (response) {
     return response.json();
@@ -115,8 +102,6 @@
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
-          height: item.height,
-          image: item.imageUrl,
           detailsUrl: item.url
         };
         add(pokemon);
@@ -127,7 +112,7 @@
     })
     }  
 
-  // Function that responds to clicking each pokemon button, loading console content. //
+// Function that responds to clicking each pokemon button, loading console content. //
   function addListItem(pokemon){
     let pokemonList = document.querySelector(".pokemon-list");
     let listpokemon = document.createElement("li");
@@ -137,11 +122,11 @@
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
     button.addEventListener("click", function(event) {
-      showDetails(pokemon);
+    showDetails(pokemon);
     });
     }
 
-  // Returns //
+// Returns //
         return {
           add: add,
           getAll: getAll,
@@ -151,18 +136,12 @@
           showDetails: showDetails
         }   
 
-    function addClickEvent(button,pokemon) {
-      button.addEventListener('click', function() {
-        showDetails(pokemon);
-      });
-      }
-
     })();
     
-      pokemonRepository.loadList().then(function () {
-      pokemonRepository.getAll().forEach (function(pokemon) {
-      pokemonRepository.addListItem(pokemon);
-      }); 
-       
-      }); 
-   
+    pokemonRepository.loadList().then(function () {
+    pokemonRepository.getAll().forEach (function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+    }); 
+      
+    }); 
+  
