@@ -1,11 +1,9 @@
-
   let pokemonRepository = (function () {
   let modalContainer = document.querySelector('#modal-container');
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   
   
-
 //  ---------- ShowModal data listed below --------- //
 
     function showModal() {
@@ -89,8 +87,7 @@
 
   function showDetails(item) {
       pokemonRepository.loadDetails(item).then(function () {
-       /*  console.log(item); */
-       showModal(item.name, item.height, /* item.types, */ item.Url);
+       showModal(item.name, item.height, item.Url);
       });
   }
 
@@ -144,4 +141,3 @@
     }); 
       
     }); 
-  
