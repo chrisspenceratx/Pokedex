@@ -39,7 +39,6 @@
 
 
 .h1 {
-  /* Added text-align to remove bullets from unordered list to be like example on 1.8 exercise. */   
   text-align: center;
   }
 
