@@ -29,7 +29,7 @@
 }
   
 .list-group {
-    padding: 20px; 
+    padding: 70px; 
     /* Added list-style to remove bullets from unordered list to be like example on 1.8 exercise. */   
     list-style: none;
     position: absolute;
@@ -40,6 +40,7 @@
 
 .h1 {
   text-align: center;
+  padding: 10px;
   }
 
 body {
