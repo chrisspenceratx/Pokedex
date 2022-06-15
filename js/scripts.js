@@ -4,7 +4,10 @@
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   
   
+  
 //  ---------- ShowModal data listed below --------- //
+
+
 
     function showModal() {
       modalContainer.classList.add('is-visible');
