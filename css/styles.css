@@ -28,7 +28,7 @@
   background-color: lightseagreen;
 }
   
-.pokemon-list {
+.list-group {
     padding: 20px; 
     /* Added list-style to remove bullets from unordered list to be like example on 1.8 exercise. */   
     list-style: none;

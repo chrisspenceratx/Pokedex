@@ -110,7 +110,7 @@
 
 // Function that responds to clicking each pokemon button, loading console content. //
   function addListItem(pokemon){
-    let pokemonList = document.querySelector(".pokemon-list");
+    let pokemonList = document.querySelector(".list-group");
     let listpokemon = document.createElement("li");
     let button = document.createElement("button");
     button.innerText = pokemon.name;
