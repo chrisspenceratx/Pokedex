@@ -110,13 +110,17 @@
 
 // Function that responds to clicking each pokemon button, loading console content. //
   function addListItem(pokemon){
+
+    // Changed ".pokemon-list" to ".list-group" for BS //
     let pokemonList = document.querySelector(".list-group");
   
     let listpokemon = document.createElement("li"); 
+    // Added "list-group-item" to to li element for BS //
     listpokemon.classList.add("list-group-item");
     let button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add("button-class");
+    // Added "btn-primary" class for button for BS //
     button.classList.add("btn-primary");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);

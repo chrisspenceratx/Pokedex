@@ -28,6 +28,8 @@
   background-color: lightseagreen;
 }
   
+/* Changed ".pokemon-list" to ".list-group" for BS */
+
 .list-group {
     padding: 70px; 
     /* Added list-style to remove bullets from unordered list to be like example on 1.8 exercise. */   
