@@ -123,6 +123,7 @@
     button.classList.add("button-class");
     // Added "btn-primary" class for button for//
     button.classList.add("btn-primary");
+    button.classList.add("btn-secondary");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
     button.addEventListener("click", function(event) {
