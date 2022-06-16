@@ -11,6 +11,17 @@
 
     function showModal(title, text, apiUrl) {
 
+  let modalContainer = document.querySelector('#modal-container');
+      let modalBody = $(".modal-body");
+      let modalTitle = $(".modal-title");
+      let modalHeader = $(".modal-header");
+
+      modalTitle.empty();
+      modalBody.empty();
+      modalHeader.empty();
+
+
+
 // Added 'is-visible' class here, rather than having a separate showModal function//
       modalContainer.classList.add('is-visible');
     
@@ -41,6 +52,12 @@
       modal.appendChild(imageElement);  
       modalContainer.appendChild(modal);
       modalContainer.classList.add('is-visible');
+
+// Connecting elements with Bootstrap modal elements // 
+    /*    modalTitle.append(titleElement);
+      modalBody.append(contentElement);
+      modalBody.append(imageElement); 
+ */
     }
 
   function hideModal() {
@@ -124,12 +141,19 @@
     // Added "btn-primary" class for button for//
     button.classList.add("btn-primary");
     button.classList.add("btn-secondary");
+    button.setAttribute('data-toggle', '.modal');
+    button.setAttribute('data-target', '.modal');
+
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
     button.addEventListener("click", function(event) {
     showDetails(pokemon);
     });
     }
+
+
+       
+    
 
 // Returns //
         return {
