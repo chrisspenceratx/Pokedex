@@ -4,17 +4,14 @@
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   
   
-  
 //  ---------- ShowModal data listed below --------- //
 
-
-
-    function showModal() {
-      modalContainer.classList.add('is-visible');
-    }
+  
 
     function showModal(title, text, apiUrl) {
-      
+
+// Added 'is-visible' class here, rather than having a separate showModal function//
+      modalContainer.classList.add('is-visible');
     
 // Clear all existing modal content
       modalContainer.innerHTML = '';
@@ -123,7 +120,7 @@
     let button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add("button-class");
-    // Added "btn-primary" class for button for BS //
+    // Added "btn-primary" class for button for//
     button.classList.add("btn-primary");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
