@@ -1,4 +1,5 @@
   let pokemonRepository = (function () {
+// Look at moving modalContainer within a function.  Unsure which, list doesn't print out in showModal function//
   let modalContainer = document.querySelector('#modal-container');
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
