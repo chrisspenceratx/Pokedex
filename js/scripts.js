@@ -12,6 +12,8 @@
     function showModal(title, text, apiUrl) {
 
   let modalContainer = document.querySelector('#modal-container');
+
+  // added variables to connect to BS modal terms//
       let modalBody = $(".modal-body");
       let modalTitle = $(".modal-title");
       let modalHeader = $(".modal-header");
@@ -54,6 +56,8 @@
       modalContainer.classList.add('is-visible');
 
 // Connecting elements with Bootstrap modal elements // 
+
+// Below is connections made for the API content with BS variables.  Doesn't currently work //
     /*    modalTitle.append(titleElement);
       modalBody.append(contentElement);
       modalBody.append(imageElement); 
