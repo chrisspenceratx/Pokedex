@@ -1,7 +1,7 @@
   let pokemonRepository = (function () {
 // Look at moving modalContainer within a function.  Unsure which, list doesn't print out in showModal function//
-  let modalContainer = document.querySelector('#modal-container');
-  let pokemonList = [];
+/*   let modalContainer = document.querySelector('#modal-container');
+ */  let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   
   
@@ -11,34 +11,32 @@
 
     function showModal(title, text, apiUrl) {
 
-  let modalContainer = document.querySelector('#modal-container');
+ /*  let modalContainer = document.querySelector('#modal-container'); */
 
   // added variables to connect to BS modal terms//
-      let modalBody = $(".modal-body");
-      let modalTitle = $(".modal-title");
-      let modalHeader = $(".modal-header");
+  let modalBody = document.querySelector('.modal-body');
+  let modalTitle = document.querySelector('.modal-title');
+  let modalHeader = document.querySelector('.modal-header');
 
-      modalTitle.empty();
-      modalBody.empty();
-      modalHeader.empty();
-
+      modalTitle.innerHTML = '';
+      modalBody.innerHTML = '';
 
 
 // Added 'is-visible' class here, rather than having a separate showModal function//
-      modalContainer.classList.add('is-visible');
+/*       modalContainer.classList.add('is-visible'); */
     
 // Clear all existing modal content
-      modalContainer.innerHTML = '';
+     /*  modalContainer.innerHTML = ''; */
     
 // Declares new div and adds modal CSS sclass //
-      let modal = document.createElement('div');
-      modal.classList.add('modal');
+     /*  let modal = document.createElement('div');
+      modal.classList.add('modal'); */
     
 // Button content for modal
-      let closeButtonElement = document.createElement('button');
+     /*  let closeButtonElement = document.createElement('button');
       closeButtonElement.classList.add('modal-close');
       closeButtonElement.innerText = 'Close';
-      closeButtonElement.addEventListener('click', hideModal);
+      closeButtonElement.addEventListener('click', hideModal); */
 
       
 // Content within the modal //
@@ -48,28 +46,33 @@
       contentElement.innerText = text;
       let imageElement = document.createElement('img');
       imageElement.src = apiUrl;
-      modal.appendChild(closeButtonElement);
+     /*  modal.appendChild(closeButtonElement);
       modal.appendChild(titleElement);
       modal.appendChild(contentElement);
       modal.appendChild(imageElement);  
       modalContainer.appendChild(modal);
-      modalContainer.classList.add('is-visible');
+      modalContainer.classList.add('is-visible'); */
 
 // Connecting elements with Bootstrap modal elements // 
 
 // Below is connections made for the API content with BS variables.  Doesn't currently work //
-    /*    modalTitle.append(titleElement);
+      modalTitle.append(titleElement);
       modalBody.append(contentElement);
       modalBody.append(imageElement); 
- */
+ 
     }
 
   function hideModal() {
-      modalContainer.classList.remove('is-visible');
+      /* modalContainer.classList.remove('is-visible'); */
+      modalTitle.appendChild(titleElement);
+      modalBody.appendChild(contentElement);
+      modalBody.appendChild(imageElement);
+
+
   }
 
 // Esc key content for modal //
-      window.addEventListener('keydown', (e) => {
+   /*    window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
         hideModal();  
       }
@@ -81,7 +84,7 @@
       if (target === modalContainer) {
         hideModal();
       }
-    });
+    }); */
  
  //  ---------- ShowModal data listed above --------- //
   function add (pokemon) {
@@ -119,7 +122,7 @@
     }).then(function (json) {
       json.results.forEach(function (item) {
         let pokemon = {
-          name: item.name,
+            name: item.name,
           detailsUrl: item.url
         };
         add(pokemon);
@@ -141,12 +144,12 @@
     listpokemon.classList.add("list-group-item");
     let button = document.createElement("button");
     button.innerText = pokemon.name;
-    button.classList.add("button-class");
-    // Added "btn-primary" class for button for//
-    button.classList.add("btn-primary");
-    button.classList.add("btn-secondary");
-    button.setAttribute('data-toggle', '.modal');
-    button.setAttribute('data-target', '.modal');
+     button.classList.add("button-class");
+     // Added "btn-primary" class for button for//
+ button.classList.add('btn', 'btn-custom', 'col-6', 'mx-auto');
+ button.classList.add('list-group-item', 'list-group-item-action');
+ button.setAttribute('data-target', '#pokemonBS-modal');
+ button.setAttribute('data-toggle', 'modal')
 
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
