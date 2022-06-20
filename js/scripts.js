@@ -62,15 +62,12 @@
  
     }
 
-  function hideModal() {
-      /* modalContainer.classList.remove('is-visible'); */
+/*   function hideModal() {
       modalTitle.appendChild(titleElement);
       modalBody.appendChild(contentElement);
       modalBody.appendChild(imageElement);
-
-
-  }
-
+   }
+ */
 // Esc key content for modal //
    /*    window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
@@ -106,6 +103,8 @@
         item.types = details.types;
       }).catch(function (e) {
         console.error(e);
+
+        url.classList.add('list-group-item');
       });
   }
 
@@ -140,13 +139,13 @@
     let pokemonList = document.querySelector(".list-group");
   
     let listpokemon = document.createElement("li"); 
-    // Added "list-group-item" to to li element for BS //
+    // Added "list-group-item" to li element for BS //
     listpokemon.classList.add("list-group-item");
     let button = document.createElement("button");
     button.innerText = pokemon.name;
      button.classList.add("button-class");
      // Added "btn-primary" class for button for//
- button.classList.add('btn', 'btn-custom', 'col-6', 'mx-auto');
+ button.classList.add('btn', 'btn-custom', 'col-12', 'mx-auto');
  button.classList.add('list-group-item', 'list-group-item-action');
  button.setAttribute('data-target', '#pokemonBS-modal');
  button.setAttribute('data-toggle', 'modal')
