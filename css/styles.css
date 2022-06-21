@@ -1,4 +1,10 @@
 
+.navbar {
+  padding: 3px 0;
+
+}
+
+
 .modal-content {
     text-align: center;
 }
@@ -64,12 +70,14 @@
   }
 
 body {
+    display: block;
     background-color: lightblue;  
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 1.6;
+  
   }
+
 
 .modal-close {
   float: right;
@@ -90,3 +98,4 @@ body {
   margin-bottom: 0;
   text-align: center;
 }
+

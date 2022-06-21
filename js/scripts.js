@@ -21,6 +21,8 @@
       }
   });
 }
+
+
   
 //  ---------- ShowModal data listed below --------- //
 
@@ -116,7 +118,7 @@
     showDetails(pokemon);
     });
   }
-  
+
 // Returns //
         return {
           add: add,
