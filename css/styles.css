@@ -4,6 +4,9 @@
 
 }
 
+.card-body {
+
+}
 
 .modal-content {
     text-align: center;
@@ -13,13 +16,13 @@
     text-align: center;
 }
 
-.modal-header {
+/* .modal-header {
   text-align: center;
 }
 
 .modal-title {
   text-align: center;
-}
+} */
 
 .modal-body {
   text-align: center;
@@ -41,7 +44,7 @@
     cursor: pointer;
     background-color: white;
     color: black;
-    border: 2px solid #4caf50;
+    border: 2px solid #addfcd;
     width: 22em;
   }
 
@@ -64,14 +67,14 @@
   }
 
 
-.h1 {
+/* .h1 {
   text-align: center;
   padding: 10px;
-  }
+  } */
 
 body {
     display: block;
-    background-color: lightblue;  
+    background-color: lightcyan;  
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 16px;
